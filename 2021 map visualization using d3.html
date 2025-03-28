@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icon.png"/>
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/3fe16e504a.js" crossorigin="anonymous"></script>
+
+    <!-- Load d3-annotation -->
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+</head>
+
+<body>
+    <title>Olympic Map</title>
+    <header>
+        <img src="icon.png" id="logo">
+        <div id="select">
+            <select id="category1">
+                <option value="" selected>Select Category</option>
+            </select>
+            <select id="category2">
+                <option value="" selected>Specify Category</option>
+            </select>
+        </div>
+        <h1>Olympic Map</h1>
+        <span id="dark-light" title="Toggle Dark Theme">
+            <i class="fas fa-moon"></i>
+        </span>
+        <span id="about">About</span>
+        <div id="modaali" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                    <h2>Olympic Map</h2>
+                    Interactive map for olympic data
+                    <h3>Data</h3>
+                    <a href="https://data.world/johayes13/summer-winter-olympic-games">Summer & Winter Olympic Games</a>
+                    <a href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results">120 years of Olympic history: athletes and results</a>
+                    <a href="https://www.kaggle.com/jamieeeee/tokyo-2020-olympics-medal-count">Tokyo 2020 Olympics Medal Count</a>
+                    <h3>Tools</h3>
+                    * D3
+                    * Pandas
+                    * Git
+                    <h3>Members</h3>
+                    * O. Mehtonen 
+                    * J. Kanninen 
+                    * J. Lintunen
+                    * J. Heikkilä
+                    <h3>License</h3>
+                    MIT
+            </div>
+        </div>
+    </header>
+    <div class="flex-container">
+        <aside class="info-container">
+            <h1 id="infootsikko">Select a country on the map</h1>
+            <a id="nimi" href></a>
+            <br>
+            <img id="lippu" src="" width=90px height=auto>
+            <h2 id="otsikko1">Summer & Winter Medals
+                <p id="Mitalit"></p>
+                <p id="Kulta"></p>
+                <p id="Hopea"></p>
+                <p id="Pronssi"></p>
+                <p id="MitalitPC"></p>
+            </h2>
+            <h2 id="otsikko2">Summer Medals
+                <p id="KesaMitalit"></p>
+                <p id="KultaK"></p>
+                <p id="HopeaK"></p>
+                <p id="PronssiK"></p>
+            </h2>
+            <h2 id="otsikko3">Winter Medals
+                <p id="TalviMitalit"></p>
+                <p id="KultaT"></p>
+                <p id="HopeaT"></p>
+                <p id="PronssiT"></p>
+            </h2>
+            <h2 id="otsikko4">Most Successful Sport
+                <p id="ParasLaji"></p>
+                <p id="KultaP"></p>
+                <p id="HopeaP"></p>
+                <p id="PronssiP"></p>
+            </h2>
+            <h2 id="otsikko5">Olympic games hosted
+            </h2>
+            <h2 id="otsikko6">Men's athletics records
+            </h2>
+            <h2 id="otsikko7">Women's athletics records
+            </h2>
+        </aside>
+        <main class="kartta-container">
+            <div id="map">
+                <svg></svg>
+            </div>
+        </main>
+        <aside class="toplista-container">
+            <div>
+                <span id="topotsikkokentta">
+                    <h1 id="topotsikko"></h1>
+                    <span id="topnappi" title="Sort">
+                        <i class="fas fa-angle-up"></i>
+                    </span>
+                </span>
+
+                <ol id="toplista">
+                </ol>
+            </div>
+        </aside>
+    </div>
+    <div id="tooltip"></div>
+    <script src="olympia.js"></script>
+</body>
+</html>
